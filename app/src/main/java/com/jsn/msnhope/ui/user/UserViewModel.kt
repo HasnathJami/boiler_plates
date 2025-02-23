@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.jsn.msnhope.data.local.database.AppDatabase
 import com.jsn.msnhope.data.local.entities.UserEntity
+import com.jsn.msnhope.data.remote.model.network.ApiClient
 import com.jsn.msnhope.data.repository.AppDataSourceRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -18,7 +19,7 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
     val users: LiveData<List<UserEntity>> get() = _users
     init {
         val userDao = AppDatabase.getDatabase(application).userDao()
-        repository = AppDataSourceRepository(userDao)
+        repository = AppDataSourceRepository(userDao, ApiClient.apiInterface)
         fetchUser()
     }
 
