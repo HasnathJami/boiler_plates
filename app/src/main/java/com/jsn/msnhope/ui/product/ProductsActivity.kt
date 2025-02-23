@@ -17,9 +17,12 @@ import com.jsn.msnhope.databinding.ActivityProductsBinding
 import com.jsn.msnhope.databinding.ActivityUserBinding
 import com.jsn.msnhope.ui.user.UserListAdapter
 import com.jsn.msnhope.ui.user.UserViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ProductsActivity : AppCompatActivity() {
-    private val viewModel: ProductsViewModel by viewModels()
+   private val viewModel: ProductsViewModel by viewModels()
+
     private lateinit var adapter: ProductListAdapter
     private lateinit var binding: ActivityProductsBinding
 
